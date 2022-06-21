@@ -1,5 +1,6 @@
-@import '@carbon/styles/index.scss';
+@use '@carbon/styles/scss/grid';
 
+@include grid.flex-grid();
 
 html, body {
   text-rendering: geometricPrecision;

@@ -4,7 +4,8 @@
   "description": "A reference implementation of a selfservice UI for ORY Kratos in node.js",
   "main": "src/index.ts",
   "scripts": {
-    "build": "rm -rf lib/* && tsc",
+    "build:sass": "sass --load-path=node_modules public/sass/styles.scss public/styles.css",
+    "build": "rm -rf lib/* && tsc && npm run build:sass",
     "serve": "node lib/index.js",
     "start": "nodemon",
     "test": "exit 0",
