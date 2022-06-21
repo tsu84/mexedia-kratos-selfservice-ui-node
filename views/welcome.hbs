@@ -44,7 +44,8 @@
         {{> ui_screen_button testId="recover-account" link="recovery" label="Recover Account" disabled=hasSession}}
         {{> ui_screen_button testId="verify-account" link="verification" label="Verify Account"}}
         {{> ui_screen_button testId="account-settings" link="settings" label="Account Settings" disabled=(not hasSession)}}
-        {{> ui_screen_button testId="logout" href=logoutUrl label="Logout" disabled=(not hasSession) }}
+        {{> ui_screen_button testId="logout" href="" label="Logout" disabled=(not hasSession) }}
+        {{> ui_screen_button testId="login" href="/myLogin" label="QUI" }}
       </div>
     </div>
   </div>

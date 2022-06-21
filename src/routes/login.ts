@@ -8,6 +8,7 @@ import {
   RouteCreator,
   RouteRegistrator
 } from '../pkg'
+import {Request, Response} from "express";
 
 export const createLoginRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {
@@ -67,6 +68,8 @@ export const createLoginRoute: RouteCreator =
       })
       .catch(redirectOnSoftError(res, next, initFlowUrl))
   }
+
+
 
 export const registerLoginRoute: RouteRegistrator = (
   app,

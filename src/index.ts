@@ -57,6 +57,11 @@ app.get('/', (req: Request, res: Response) => {
   res.redirect('welcome', 303)
 })
 
+app.get('/about', function (req, res)
+{
+  res.render('login');
+});
+
 register404Route(app)
 register500Route(app)
 
