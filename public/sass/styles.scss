@@ -1,3 +1,5 @@
+@use '@carbon/styles';
+
 @use '@carbon/styles/scss/grid';
 
 @include grid.flex-grid();
