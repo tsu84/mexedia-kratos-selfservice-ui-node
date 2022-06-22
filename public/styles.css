@@ -21242,7 +21242,6 @@ html, body {
 
 body {
   min-height: 100vh;
-  background: var(--grey5);
   display: flex;
   flex-direction: column;
 }
@@ -21354,6 +21353,43 @@ fieldset {
 form img {
   margin: 0 auto;
   display: block;
+}
+
+/*********************************************/
+/***************   General   *****************/
+/*********************************************/
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.subh1, .subh2, .subh3, .subh4, .subh5, .subh5 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.weight-500 {
+  font-weight: 500;
+}
+
+.weight-700 {
+  font-weight: 700;
+}
+
+.text-color-grey {
+  color: #6C6E76;
+}
+
+/******************  LOGIN   *******************/
+#login > .cds--row {
+  margin: 0;
+}
+#login .left-image {
+  position: relative;
+}
+#login .left-image img {
+  position: absolute;
+  min-width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */

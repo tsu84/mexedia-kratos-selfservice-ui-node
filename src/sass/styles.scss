@@ -1,6 +1,10 @@
-@use '@carbon/styles';
+@use '../../node_modules/@carbon/styles';
+@use '../../node_modules/@carbon/styles/scss/grid';
 
-@use '@carbon/styles/scss/grid';
+@use '../../node_modules/@carbon/themes/scss/themes';
+
+@import '_my-theme';
+@include theme--white();
 
 @include grid.flex-grid();
 
@@ -10,7 +14,6 @@ html, body {
 
 body {
   min-height: 100vh;
-  background: var(--grey5);
   display: flex;
   flex-direction: column;
 }
@@ -123,3 +126,66 @@ form img {
   margin: 0 auto;
   display: block;
 }
+
+/*********************************************/
+/***************   General   *****************/
+/*********************************************/
+$primary: #09132D;
+$primary-light: #D7E1FA;
+$primary-dark: #040914;
+
+$secondary: #1079FF;
+$secondary-light: #75B2FF;
+$secondary-dark: #1258B3;
+
+$dark: #040A17;
+$dark-100: #34363F;
+$grey: #6C6E76;
+$grey-100: #C5C8D2;
+$grey-200: #E6E9F0;
+$grey-300: #FAFBFF;
+
+$tertiary: #25CCA3;
+$tertiary-light: rgba(155, 222, 206, 0.9);;
+$tertiary-dark: #009974;
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.subh1, .subh2, .subh3, .subh4, .subh5, .subh5 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.weight-500 {
+  font-weight: 500;
+}
+
+.weight-700 {
+  font-weight: 700;
+}
+
+.text-color-grey {
+  color: $grey;
+}
+
+
+ /******************  LOGIN   *******************/
+#login {
+   > .cds--row {
+     margin: 0;
+   }
+  .left-image {
+    position: relative;
+    img {
+      position: absolute;
+      min-width: 100%;
+      max-height: 100vh;
+      object-fit: cover;
+    }
+  }
+}
+
+
+

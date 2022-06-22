@@ -1,49 +1,23 @@
-<div class="auth app-container" id="login">
-    <div>
-        <img src="background.svg">
-    </div>
-    <div>
-        <div class="card">
-            {{#if refresh}}
-                <h2 class="typography-h2 card-title">Confirm Action</h2>
-            {{else if (eq requested_aal "aal2")}}
-                <h2 class="typography-h2 card-title">Two-Factor Authentication</h2>
-            {{else}}
-                <h2 class="typography-h2 card-title">Sign In</h2>
-            {{/if}}
-
-            {{> messages messages=messages className="global"}}
-
-            {{> ui ui=ui}}
+<div class="auth carbonCustom" id="login">
+    <div class="cds--row cds--no-gutter">
+            <div class="cds--col-lg-5">
+                <div class="left-image">
+                    <img src="images/background.svg">
+                </div>
+            </div>
+            <div class="cds--col-lg-11">
+                <div class="">
+                    <img src="images/Mexedia.svg">
+                    <h2 class="weight-700">Accedi tramite Mexedia</h2>
+                    <p class="subh3 text-color-grey weight-700">Inserisci le credenziali e accedi all’ecosistema Mexedia.</p>
+                    <bx-form-item>
+                        <bx-input placeholder="Inserisci email" size="lg" color-scheme="" type="text">
+                            <span class="customText" slot="label-text">Email</span>
+                            <span slot="validity-message">Qualcosa non va bene</span>
+                        </bx-input>
+                    </bx-form-item>
+                </div>
+            </div>
         </div>
-
-        {{#if isAuthenticated}}
-            <div class="card">
-                <div class="card-action">
-                    <a class="typography-link typography-h2" data-testid="logout-link" href="{{logoutUrl}}">Log out</a>
-                </div>
-            </div>
-        {{else}}
-            <div class="card">
-                <div class="card-action">
-                    <a class="typography-link typography-h2" data-testid="cta-link" href="{{signUpUrl}}">Create account</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-action">
-                    <a class="typography-link typography-h2" data-testid="forgot-password" href="recovery">Recover
-                        your account</a>
-                </div>
-            </div>
-        {{/if}}
-    </div>
-    <div class="cds--grid">
-        <div class="cds--row">
-            <div class="cds--col">1 of 4</div>
-            <div class="cds--col">2 of 4</div>
-            <div class="cds--col">3 of 4</div>
-            <div class="cds--col">4 of 4</div>
-        </div>
-    </div>
 </div>
 
