@@ -1,0 +1,104 @@
+@mixin my-theme {
+  $my-theme: (
+    // Background
+          background: #ff0000,
+          background-active: #e76464,
+          background-hover: #ff0000,
+          background-selected: #ce0a0a,
+          background-selected-hover: #ff0000,
+          background-inverse: #393939,
+          background-inverse-hover: #4c4c4c,
+          background-brand: #0f62fe,
+
+    // Layer
+          layer: #f4f4f4,
+          layer-active: #c6c6c6,
+          layer-hover: #e5e5e5,
+          layer-selected: #e0e0e0,
+          layer-selected-hover: #cacaca,
+          layer-selected-inverse: #161616,
+          layer-selected-disabled: #8d8d8d,
+          layer-accent: #e0e0e0,
+          layer-accent-active: #a8a8a8,
+          layer-accent-hover: #d1d1d1,
+          layer-disabled: #f4f4f4,
+
+    // Field
+          field: #f4f4f4,
+          field-hover: #e5e5e5,
+          field-disabled: #f4f4f4,
+
+    // Interactive
+          interactive: #0f62fe,
+
+    // Border
+          border-subtle: #e0e0e0,
+          border-subtle-selected: #c6c6c6,
+          border-strong: #8d8d8d,
+          border-inverse: #161616,
+          border-interactive: #0f62fe,
+          border-disabled: #f4f4f4,
+
+    // Text
+          text-primary: #161616,
+          text-secondary: #525252,
+          text-placeholder: #a8a8a8,
+          text-helper: #6f6f6f,
+          text-on-color: #ffffff,
+          text-inverse: #ffffff,
+          text-disabled: #c6c6c6,
+          text-on-color-disabled: #8d8d8d,
+
+    //Link
+          link-primary: #0f62fe,
+          link-primary-hover: #0043ce,
+          link-secondary: #0043ce,
+          link-visited: #8a3ffc,
+          link-inverse: #78a9ff,
+
+    //Icon
+          icon-primary: #161616,
+          icon-secondary: #525252,
+          icon-on-color: #ffffff,
+          icon-inverse: #ffffff,
+          icon-disabled: #c6c6c6,
+          icon-on-color-disabled: #8d8d8d,
+
+    // Support
+          support-error: #da1e28,
+          support-success: #198038,
+          support-warning: #f1c21b,
+          support-info: #0043ce,
+          support-error-inverse: #fa4d56,
+          support-success-inverse: #42be65,
+          support-warning-inverse: #f1c21b,
+          support-info-inverse: #4589ff,
+
+    // Misc.
+          overlay: rgba(22, 22, 22, 0.5),
+          toggle-off: #8d8d8d,
+
+    // Button
+          button-primary: #ff0000,
+          button-primary-active: #ff0000,
+          button-primary-hover: #ff0000,
+          button-secondary: #393939,
+          button-secondary-active: #6f6f6f,
+          button-secondary-hover: #4c4c4c,
+          button-tertiary: #0f62fe,
+          button-tertiary-active: #002d9c,
+          button-tertiary-hover: #0353e9,
+          button-danger-primary: #da1e28,
+          button-danger-secondary: #da1e28,
+          button-danger-active: #750e13,
+          button-danger-hover: #b81921,
+          button-disabled: #c6c6c6,
+
+    // Focus
+          focus-inset: #ffffff,
+          focus-inverse: #ffffff,
+
+    // Skeleton
+          skeleton-background: #e5e5e5,
+          skeleton-element: #c6c6c6,)
+}

@@ -1,12 +1,12 @@
 <div class="auth carbonCustom" id="login">
     <div class="cds--row cds--no-gutter">
-            <div class="cds--col-lg-5">
+            <div class="cds--col-lg-5 cds--col-md-3 cds--col-sm-0">
                 <div class="left-image">
                     <img src="images/background.svg">
                 </div>
             </div>
-            <div class="cds--col-lg-11">
-                <div class="">
+            <div class="cds--col-sm-12 cds--col-md-5 cds--col-lg-11">
+                <div style="margin: auto" class="cds--col-md-5 cds--col-lg-7">
                     <img src="images/Mexedia.svg">
                     <h2 class="weight-700">Accedi tramite Mexedia</h2>
                     <p class="subh3 text-color-grey weight-700">Inserisci le credenziali e accedi all’ecosistema Mexedia.</p>
@@ -15,6 +15,18 @@
                             <span class="customText" slot="label-text">Email</span>
                             <span slot="validity-message">Qualcosa non va bene</span>
                         </bx-input>
+
+                        <bx-input  class="spacing-05" placeholder="Inserisci password" size="lg" color-scheme="" type="password">
+                            <span class="customText" slot="label-text">Password</span>
+                            <span slot="validity-message">Qualcosa non va bene</span>
+                        </bx-input>
+
+                        <bx-checkbox label-text="Ricordami per i prossimi accessi"></bx-checkbox>
+
+                        <bx-btn href="https://www.ibm.com"> Accedi </bx-btn>
+                        <bx-btn  kind='ghost'> Hai dimenticato la password? </bx-btn>
+                        <a>Contatta l'assistenza</a>
+
                     </bx-form-item>
                 </div>
             </div>

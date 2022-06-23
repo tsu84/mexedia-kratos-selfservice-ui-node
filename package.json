@@ -26,6 +26,7 @@
   "dependencies": {
     "@carbon/elements": "^11.5.0",
     "@carbon/grid": "^11.3.0",
+    "@carbon/layout": "^11.3.0",
     "@carbon/styles": "^1.5.0",
     "@carbon/themes": "^11.4.0",
     "@ory/client": "0.0.1-alpha.21",

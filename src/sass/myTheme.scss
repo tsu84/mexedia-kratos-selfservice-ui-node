@@ -1,11 +1,11 @@
-@mixin theme--white {
+@mixin my-theme {
   $theme--white: (
     // Background
           background: #ff0000,
-          background-active: #e76464,
+          background-active: #ff0000,
           background-hover: #ff0000,
-          background-selected: #ce0a0a,
-          background-selected-hover: #ff0000,
+          background-selected: #ff0000,
+          background-selected-hover: #cacaca,
           background-inverse: #393939,
           background-inverse-hover: #4c4c4c,
           background-brand: #0f62fe,
@@ -24,7 +24,7 @@
           layer-disabled: #f4f4f4,
 
     // Field
-          field: #f4f4f4,
+          field: #ff0000,
           field-hover: #e5e5e5,
           field-disabled: #f4f4f4,
 
@@ -32,7 +32,7 @@
           interactive: #0f62fe,
 
     // Border
-          border-subtle: #e0e0e0,
+          border-subtle: #ff0000,
           border-subtle-selected: #c6c6c6,
           border-strong: #8d8d8d,
           border-inverse: #161616,
@@ -40,24 +40,24 @@
           border-disabled: #f4f4f4,
 
     // Text
-          text-primary: #161616,
+          text-primary: #ff0000,
           text-secondary: #525252,
           text-placeholder: #a8a8a8,
           text-helper: #6f6f6f,
-          text-on-color: #ffffff,
+          text-on-color: #ff0000,
           text-inverse: #ffffff,
           text-disabled: #c6c6c6,
           text-on-color-disabled: #8d8d8d,
 
     //Link
-          link-primary: #0f62fe,
+          link-primary: #ff0000,
           link-primary-hover: #0043ce,
           link-secondary: #0043ce,
           link-visited: #8a3ffc,
           link-inverse: #78a9ff,
 
     //Icon
-          icon-primary: #161616,
+          icon-primary: #ff0000,
           icon-secondary: #525252,
           icon-on-color: #ffffff,
           icon-inverse: #ffffff,
