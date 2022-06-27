@@ -10,6 +10,9 @@ import '../../node_modules/carbon-web-components/es/components/ui-shell/header-m
 import '../../node_modules/carbon-web-components/es/components/ui-shell/header-menu-button.js';
 import '../../node_modules/carbon-web-components/es/components/ui-shell/header-name.js';
 import '../../node_modules/carbon-web-components/es/components/checkbox/index.js';
+import "../../node_modules/carbon-web-components/es/components/button/index.js";
+import "../../node_modules/carbon-web-components/es/components/form/index.js";
+
 import './index.scss';
 
 

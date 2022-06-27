@@ -6,15 +6,145 @@
 //
 
 @use "myTheme";
+@use '../../node_modules/@carbon/layout';
 @include myTheme.my-theme();
 
 @import '../../node_modules/carbon-components/scss/globals/scss/styles.scss';
 
+$primary: #09132D;
+$primary-light: #D7E1FA;
+$primary-dark: #040914;
+
+$secondary: #1079FF;
+$secondary-light: #75B2FF;
+$secondary-dark: #1258B3;
+
+$grey-medium: #C5C8D2;
+$grey-dark: #6C6E76;
+$grey-light: #E6E9F0;
+
+$tertiary: #25CCA3;
+$tertiary-light: rgba(155, 222, 206, 0.9);;
+$tertiary-dark: #009974;
 
 bx-input {
   span[slot='label-text'] {
     color: #34363F;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+  }
+
+  input::placeholder {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+}
+
+bx-btn .bx--btn--primary {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background: #09132D;
+  padding: 14px 30px;
+}
+
+.mx-input {
+  --cds-text-01: #6b6c73;
+  --cds-text-02: #6b6c73;
+
+  --cds-field-01: #fafbff;
+  --cds-ui-04: #6B6C73;
+}
+
+
+bx-form-item, bx-inline-notification {
+  margin-bottom: 2rem;
+}
+
+bx-btn::part(button) {
+  padding-left: 16px;
+  padding-right: 16px;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+bx-btn {
+  max-width: unset;
+  &[size="sm"]::part(button) {
+    font-size: 12px;
+  }
+  &[disabled] {
+    pointer-events: none;
+    &[kind="ghost"],
+    &[kind="tertiary"] {
+      opacity: 0.3;
+    }
+    &[kind="primary"]::part(button),
+    &[kind="secondary"]::part(button),
+    &[kind="danger"]::part(button) {
+      background-color: $grey-medium;
+      color: $grey-dark;
+    }
+  }
+  &[kind="ghost"]::part(button) {
+    color: $primary;
+    &:hover {
+      background-color: $grey-light;
+    }
+    &:active {
+      background-color: #c6c6c6;
+    }
+    &:focus {
+      border-color: $secondary;
+      box-shadow: inset 0 0 0 1px $secondary, inset 0 0 0 2px white;
+    }
+  }
+
+  &[kind="primary"]::part(button) {
+    background-color: $primary;
+    &:hover {
+      background-color: $primary-light;
+    }
+    &:active {
+      color: $tertiary-light;
+    }
+    &:focus {
+      border-color: $primary;
+      box-shadow: inset 0 0 0 1px $primary, inset 0 0 0 2px white;
+    }
+  }
+  &[kind="secondary"]::part(button) {
+    background-color: $secondary;
+    &:hover {
+      background-color: $secondary-dark;
+    }
+    &:active {
+      color: $primary;
+      background-color: $secondary-light;
+    }
+    &:focus {
+      border-color: $secondary;
+      box-shadow: inset 0 0 0 1px $secondary, inset 0 0 0 2px white;
+    }
+  }
+  &[kind="tertiary"]::part(button) {
+    background-color: white;
+    color: $primary;
+    border-color: $primary;
+    box-shadow: inset 0 0 0 1px $primary, inset 0 0 0 2px white;
+
+    &:hover {
+      background-color: rgba(0, 108, 245, 0.1);
+    }
+
+    &:active {
+      color: white;
+      background-color: $tertiary-dark;
+    }
+
+    &:focus {
+      border-color: #0f62fe;
+      box-shadow: inset 0 0 0 1px #0f62fe, inset 0 0 0 2px white;
+    }
   }
 }

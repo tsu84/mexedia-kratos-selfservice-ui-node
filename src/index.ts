@@ -62,6 +62,11 @@ app.get('/about', function (req, res)
   res.render('login');
 });
 
+app.get('/code-verification', function (req, res)
+{
+  res.render('verification');
+});
+
 register404Route(app)
 register500Route(app)
 

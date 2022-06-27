@@ -1,12 +1,14 @@
 @use '../../node_modules/@carbon/styles';
 @use '../../node_modules/@carbon/grid';
-@use '../../node_modules/@carbon/layout';
+
+
 
 @use "myTheme";
 
 @include myTheme.my-theme();
 
 @import '../../node_modules/@carbon/themes/scss/themes';
+@import '../../node_modules/@carbon/layout';
 
 @include grid.flex-grid();
 
@@ -167,6 +169,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+.weight-600 {
+  font-weight: 600;
+}
+
 .weight-700 {
   font-weight: 700;
 }
@@ -177,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
  /******************  LOGIN   *******************/
-#login {
+#login, #verification {
    > .cds--row {
      margin: 0;
    }
@@ -188,8 +194,45 @@ h1, h2, h3, h4, h5, h6 {
       object-fit: cover;
     }
   }
+  .content-box {
+    margin: 50px auto auto auto;
+    h2 {
+      margin: 40px 0 20px 0;
+    }
+    .subh3 {
+      font-size: 16px;
+      margin-bottom: $spacing-07;
+    }
+  }
+
+  bx-checkbox {
+    margin: 24px 0;
+  }
+
+  bx-input:nth-child(1) {
+    margin-bottom: 16px;
+  }
+
+  bx-btn {
+    display: block;
+    &[kind="ghost"] {
+      margin: 32px 0 48px 0;
+      &::part(button) {
+        padding: 0;
+      }
+    }
+  }
+
+  --cds-field-01: #f5f7fc;
 }
 
+@media (max-width: 671px) {
+  #login {
+    padding: 0 2rem;
+  }
+}
+
+/******************  Footer   *******************/
 footer {
   position: absolute;
   bottom: 0;
@@ -223,11 +266,16 @@ footer {
     left: 0;
     display: block;
     text-align: center;
+    margin-top: 80px;
+    margin-bottom: 25px;
+    position: unset;
     p {
       margin-left: 0;
     }
   }
 }
+
+
 
 
 

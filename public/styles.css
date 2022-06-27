@@ -9013,6 +9013,7 @@ tr.cds--parent-row.cds--data-table--selected.cds--expandable-row--hover + tr[dat
 .cds--data-table.cds--data-table--sort th > .cds--table-header-label {
   padding-right: 1rem;
   padding-left: 1rem;
+  line-height: 1;
 }
 
 th .cds--table-sort__flex {
@@ -11309,11 +11310,11 @@ button.cds--dropdown-text:focus {
 
 .cds--modal-content p,
 .cds--modal-content__regular-content {
-  padding-right: 20%;
   font-size: var(--cds-body-01-font-size, 0.875rem);
   font-weight: var(--cds-body-01-font-weight, 400);
   line-height: var(--cds-body-01-line-height, 1.42857);
   letter-spacing: var(--cds-body-01-letter-spacing, 0.16px);
+  padding-right: calc(20% - 2rem);
 }
 
 .cds--modal-content--with-form {
@@ -12485,6 +12486,7 @@ button.cds--dropdown-text:focus {
   line-height: var(--cds-body-compact-01-line-height, 1.28572);
   letter-spacing: var(--cds-body-compact-01-letter-spacing, 0.16px);
   display: flex;
+  flex-wrap: wrap;
   word-break: break-word;
 }
 
@@ -16777,6 +16779,10 @@ span.cds--pagination__text.cds--pagination__items-count {
   .cds--tab-content:focus {
     outline-style: dotted;
   }
+}
+
+.cds--tab-content--interactive:focus {
+  outline: none;
 }
 
 .cds--tabs.cds--skeleton {
@@ -43548,6 +43554,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+.weight-600 {
+  font-weight: 600;
+}
+
 .weight-700 {
   font-weight: 700;
 }
@@ -43557,15 +43567,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /******************  LOGIN   *******************/
-#login > .cds--row {
+#login, #verification {
+  --cds-field-01: #f5f7fc;
+}
+#login > .cds--row, #verification > .cds--row {
   margin: 0;
 }
-#login .left-image img {
+#login .left-image img, #verification .left-image img {
   min-height: 100vh;
   max-width: 100%;
   object-fit: cover;
 }
+#login .content-box, #verification .content-box {
+  margin: 50px auto auto auto;
+}
+#login .content-box h2, #verification .content-box h2 {
+  margin: 40px 0 20px 0;
+}
+#login .content-box .subh3, #verification .content-box .subh3 {
+  font-size: 16px;
+  margin-bottom: 2rem;
+}
+#login bx-checkbox, #verification bx-checkbox {
+  margin: 24px 0;
+}
+#login bx-input:nth-child(1), #verification bx-input:nth-child(1) {
+  margin-bottom: 16px;
+}
+#login bx-btn, #verification bx-btn {
+  display: block;
+}
+#login bx-btn[kind=ghost], #verification bx-btn[kind=ghost] {
+  margin: 32px 0 48px 0;
+}
+#login bx-btn[kind=ghost]::part(button), #verification bx-btn[kind=ghost]::part(button) {
+  padding: 0;
+}
 
+@media (max-width: 671px) {
+  #login {
+    padding: 0 2rem;
+  }
+}
+/******************  Footer   *******************/
 footer {
   position: absolute;
   bottom: 0;
@@ -43597,6 +43641,9 @@ footer a {
     left: 0;
     display: block;
     text-align: center;
+    margin-top: 80px;
+    margin-bottom: 25px;
+    position: unset;
   }
   footer p {
     margin-left: 0;
