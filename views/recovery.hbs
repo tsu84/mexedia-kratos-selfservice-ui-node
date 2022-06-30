@@ -1,14 +1,28 @@
-<div class="auth app-container" id="recovery">
-  <div class="card">
-    <h2 class="typography-h2 card-title">Recover your account</h2>
+<div class="auth  carbonCustom" id="recovery">
+    <div class="cds--row cds--no-gutter">
+        <div class="cds--col-lg-5 cds--col-md-0 cds--col-sm-0">
+            <div class="left-image">
+                <img src="images/background.svg">
+            </div>
+        </div>
+        <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11 d-flex">
+            <div class="content-box cds--col-md-5 cds--col-lg-8">
+                <img src="images/Mexedia.svg">
+                <h2 class="weight-700">Recupera la password</h2>
+                <p class="subh3 text-color-grey weight-600">Inserisci la tua email e riceverai un link per poter cambiare la tua password.</p>
+                <bx-form-item>
 
-    {{> messages messages=messages className="global"}}
+                    <bx-input  placeholder="Inserisci email" size="lg" color-scheme="" type="text">
+                        <span class="customText" slot="label-text">Email</span>
+                        <span slot="validity-message">Qualcosa non va bene</span>
+                    </bx-input>
 
-    {{> ui ui=ui}}
-  </div>
-  <div class="card">
-    <div class="card-action">
-      <a class="typography-link typography-h2" data-testid="back-button" href="login">Go back</a>
+                    <bx-btn href="https://www.ibm.com" icon-layout> Invia link </bx-btn>
+
+                    <a class="mt-10" href="###">Contatta l'assistenza</a>
+
+                </bx-form-item>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

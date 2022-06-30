@@ -181,9 +181,170 @@ h1, h2, h3, h4, h5, h6 {
   color: $grey;
 }
 
+// SPACING
+
+$spacings: (
+        0: 0,
+        1: 4px,
+        2: 8px,
+        3: 12px,
+        4: 16px,
+        5: 20px,
+        6: 24px,
+        7: 28px,
+        8: 32px,
+        9: 36px,
+        10: 40px,
+        auto: auto,
+);
+
+@each $key, $val in $spacings {
+  .top-#{$key} {
+    top: $val;
+  }
+  .bottom-#{$key} {
+    bottom: $val;
+  }
+  .left-#{$key} {
+    left: $val;
+  }
+  .right-#{$key} {
+    right: $val;
+  }
+  .ma-#{$key} {
+    margin: $val;
+  }
+  .mx-#{$key} {
+    margin-left: $val;
+    margin-right: $val;
+  }
+  .my-#{$key} {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+  .ml-#{$key} {
+    margin-left: $val;
+  }
+  .mr-#{$key} {
+    margin-right: $val;
+  }
+  .mt-#{$key} {
+    margin-top: $val;
+  }
+  .mb-#{$key} {
+    margin-bottom: $val;
+  }
+  .pa-#{$key} {
+    padding: $val;
+  }
+  .px-#{$key} {
+    padding-left: $val;
+    padding-right: $val;
+  }
+  .py-#{$key} {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+  .pl-#{$key} {
+    padding-left: $val;
+  }
+  .pr-#{$key} {
+    padding-right: $val;
+  }
+  .pt-#{$key} {
+    padding-top: $val;
+  }
+  .pb-#{$key} {
+    padding-bottom: $val;
+  }
+  .ma-n#{$key} {
+    margin: -$val;
+  }
+  .mx-n#{$key} {
+    margin-left: -$val;
+    margin-right: -$val;
+  }
+  .my-n#{$key} {
+    margin-top: -$val;
+    margin-bottom: -$val;
+  }
+  .ml-n#{$key} {
+    margin-left: -$val;
+  }
+  .mr-n#{$key} {
+    margin-right: -$val;
+  }
+  .mt-n#{$key} {
+    margin-top: -$val;
+  }
+  .mb-n#{$key} {
+    margin-bottom: -$val;
+  }
+  .pa-n#{$key} {
+    padding: -$val;
+  }
+  .px-n#{$key} {
+    padding-left: -$val;
+    padding-right: -$val;
+  }
+  .py-n#{$key} {
+    padding-top: -$val;
+    padding-bottom: -$val;
+  }
+  .pl-n#{$key} {
+    padding-left: -$val;
+  }
+  .pr-n#{$key} {
+    padding-right: -$val;
+  }
+  .pt-n#{$key} {
+    padding-top: -$val;
+  }
+  .pb-n#{$key} {
+    padding-bottom: -$val;
+  }
+}
+
+// display
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-btw {
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.success-bar {
+  background: #45C141;
+  box-shadow: 0px 7.24464px 14.4893px rgb(9 52 72 / 15%);
+  position: absolute;
+  right: 24px;
+  bottom: 46px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 10px 14px;
+}
+
+@media (max-width: 671px) {
+  .success-bar {
+    top: 12px;
+    bottom: auto;
+    right: 12px;
+    left: 12px;
+    margin: auto;
+  }
+}
+
+
 
  /******************  LOGIN   *******************/
-#login, #verification {
+#login, #verification, #recovery, #change_password {
    > .cds--row {
      margin: 0;
    }
@@ -195,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   .content-box {
-    margin: 50px auto auto auto;
+    margin: auto;
     h2 {
       margin: 40px 0 20px 0;
     }
@@ -223,12 +384,49 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
+  bx-input {
+    span[slot='helper-text'] {
+      color: #C3C7D3;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+    }
+  }
   --cds-field-01: #f5f7fc;
 }
 
+.box-number-custom {
+  width: 50px;
+  height: 50px;
+
+  background: #FAFBFF;
+  box-shadow: inset 0px -1px 0px #6B6C73;
+  -webkit-appearance: none;
+  text-align: center;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-image: initial;
+  border-bottom: 1px solid var(--cds-ui-04,#8d8d8d);
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  &[type='number'] {
+    -moz-appearance:textfield;
+  }
+}
+
 @media (max-width: 671px) {
-  #login {
+  #login, #verification, #recovery, #change_password {
     padding: 0 2rem;
+  }
+}
+
+@media (max-width: 1055px) {
+  main {
+    #recovery, #login, #verification, #change_password{
+      margin-top: 60px;
+    }
   }
 }
 

@@ -5,14 +5,20 @@
                 <img src="images/background.svg">
             </div>
         </div>
-        <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11">
+        <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11 d-flex">
             <div class="content-box cds--col-md-5 cds--col-lg-8">
                 <img src="images/Mexedia.svg">
                 <h2 class="weight-700">Codice di verifica</h2>
                 <p class="subh3 text-color-grey weight-600">Inserisci il codice di verifica a cinque cifre che abbiamo inviato al numero *** **** 373.</p>
                 <bx-form-item>
 
-
+                    <div class="mb-6 d-flex justify-content-btw">
+                        <input id="1" onkeyup="ValidatePassKey(this)" class="box-number-custom" placeholder="-"  type="text" pattern="\d*" maxlength="1">
+                        <input id="2" onkeyup="ValidatePassKey(this)" class="mx-4 box-number-custom" placeholder="-"  type="text" pattern="\d*" maxlength="1">
+                        <input id="3" onkeyup="ValidatePassKey(this)" class="box-number-custom" placeholder="-"  type="text" pattern="\d*" maxlength="1">
+                        <input id="4" onkeyup="ValidatePassKey(this)" class="mx-4 box-number-custom" placeholder="-"  type="text" pattern="\d*" maxlength="1">
+                        <input id="5" class="box-number-custom" placeholder="-"  type="text" pattern="\d*" maxlength="1">
+                    </div>
 
                     <bx-btn href="https://www.ibm.com" icon-layout> Convalida </bx-btn>
                     <bx-btn kind='ghost'> Invia un nuovo codice </bx-btn>
@@ -22,4 +28,25 @@
             </div>
         </div>
     </div>
+    <div class="success-bar">
+        <img src="images/coding_button_success.svg">
+        <h6 class="weight-700 ml-3">Il codice è stato inviato con successo!</h6>
+    </div>
 </div>
+
+<script type="text/javascript">
+    function ValidatePassKey(tb) {
+        let currentField =  document.getElementById(tb.id).value;
+        if (currentField.length >= 1) {
+            let next = parseInt(tb.id) + 1;
+            document.getElementById(next).focus();
+        }
+    }
+
+    const myTimeout = setTimeout(showDiv1, 100000);
+
+    function showDiv1() {
+        document.getElementsByClassName('success-bar')[0].style.visibility = "hidden";
+    }
+
+</script>

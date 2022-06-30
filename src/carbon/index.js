@@ -1,6 +1,6 @@
 import '../../node_modules/carbon-web-components/es/components/dropdown/dropdown.js';
 import '../../node_modules/carbon-web-components/es/components/dropdown/dropdown-item.js';
-import '../../node_modules/carbon-web-components/es/components/input';
+import '../../node_modules/carbon-web-components/es/components/input/input.js';
 import '../../node_modules/carbon-web-components/es/components/button/button.js';
 import '../../node_modules/carbon-web-components/es/components/ui-shell/header.js';
 import '../../node_modules/carbon-web-components/es/components/ui-shell/header-nav.js';
@@ -14,6 +14,7 @@ import "../../node_modules/carbon-web-components/es/components/button/index.js";
 import "../../node_modules/carbon-web-components/es/components/form/index.js";
 
 import './index.scss';
+
 
 
 
