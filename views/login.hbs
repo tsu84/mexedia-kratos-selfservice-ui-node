@@ -1,22 +1,25 @@
 <div class="auth carbonCustom" id="login">
     <div class="cds--row cds--no-gutter">
-            <div class="cds--col-lg-5 cds--col-md-0 cds--col-sm-0">
-                <div class="left-image">
-                    <img src="images/background.svg">
-                </div>
+        <div class="cds--col-lg-5 cds--col-md-0 cds--col-sm-0">
+            <div class="left-image">
+                <img src="images/background.svg">
             </div>
-            <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11 d-flex">
-                <div class="content-box cds--col-md-5 cds--col-lg-8">
-                    <img src="images/Mexedia.svg">
-                    <h2 class="weight-700">Accedi tramite Mexedia</h2>
-                    <p class="subh3 text-color-grey weight-600">Inserisci le credenziali e accedi all’ecosistema Mexedia.</p>
+        </div>
+        <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11 d-flex">
+            <div class="content-box cds--col-md-5 cds--col-lg-8">
+                <img src="images/Mexedia.svg">
+                <h2 class="weight-700">Accedi tramite Mexedia</h2>
+                <p class="subh3 text-color-grey weight-600">Inserisci le credenziali e accedi all’ecosistema Mexedia.
+                </p>
+                {{log "handlebars" ui messages}}
+                <form action="{{ui.action}}" method="{{ui.method}}">
                     <bx-form-item>
-                        <bx-input  placeholder="Inserisci email" size="lg" color-scheme="" type="text">
+                        <bx-input placeholder="Inserisci email" size="lg" color-scheme="" type="text">
                             <span class="customText" slot="label-text">Email</span>
                             <span slot="validity-message">Qualcosa non va bene</span>
                         </bx-input>
 
-                        <bx-input  placeholder="Inserisci password" size="lg" color-scheme="" type="password">
+                        <bx-input placeholder="Inserisci password" size="lg" color-scheme="" type="password">
                             <span class="customText" slot="label-text">Password</span>
                             <span slot="validity-message">Qualcosa non va bene</span>
                         </bx-input>
@@ -26,10 +29,9 @@
                         <bx-btn href="https://www.ibm.com" icon-layout> Accedi </bx-btn>
                         <bx-btn kind='ghost'> Hai dimenticato la password? </bx-btn>
                         <a href="###">Contatta l'assistenza</a>
-
                     </bx-form-item>
-                </div>
+                </form>
             </div>
+        </div>
     </div>
 </div>
-
