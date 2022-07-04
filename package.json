@@ -40,6 +40,7 @@
     "carbon-web-components": "^1.21.0",
     "cookie-parser": "^1.4.5",
     "css-loader": "^6.7.1",
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-jwt": "^6.0.0",

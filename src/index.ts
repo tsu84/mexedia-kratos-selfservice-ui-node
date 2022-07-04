@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { filterNodesByGroups, getNodeLabel } from '@ory/integrations/ui'
 import express, { Request, Response } from 'express'
 import handlebars from 'express-handlebars'
@@ -57,25 +58,25 @@ app.get('/', (req: Request, res: Response) => {
   res.redirect('welcome', 303)
 })
 
-app.get('/about', function (req, res)
-{
-  res.render('login');
-});
+// app.get('/about', function (req, res)
+// {
+//   res.render('login');
+// });
 
-app.get('/code-verification', function (req, res)
-{
-  res.render('verification');
-});
+// app.get('/code-verification', function (req, res)
+// {
+//   res.render('verification');
+// });
 
-app.get('/recovery_password', function (req, res)
-{
-  res.render('recovery');
-});
+// app.get('/recovery_password', function (req, res)
+// {
+//   res.render('recovery');
+// });
 
-app.get('/change_password', function (req, res)
-{
-  res.render('change_password');
-});
+// app.get('/change_password', function (req, res)
+// {
+//   res.render('change_password');
+// });
 
 register404Route(app)
 register500Route(app)
