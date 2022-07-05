@@ -1,22 +1,15 @@
-<fieldset
-  class="text-input-fieldset"
-  data-testid="node/input/{{attributes.name}}">
+<fieldset class="text-input-fieldset" data-testid="node/input/{{attributes.name}}">
   <label>
     <span class="typography-h3">{{getNodeLabel .}}{{#if attributes.required}}
       <span class="required-indicator">*</span>{{/if}}
     </span>
-    <input
-      class="text-input"
-      name="{{attributes.name}}"
-      type="{{attributes.type}}"
-      value="{{attributes.value}}"
-      placeholder="{{getNodeLabel .}}"
-      {{#if attributes.disabled}}disabled{{/if}}
-    />
-  </label>
-  {{#if messages}}
-    <div class="typography-caption">
+    <bx-input placeholder="{{getNodeLabel .}}" size="lg" color-scheme="" type="{{attributes.type}}"
+      name="{{attributes.name}}" value="{{attributes.value}}" {{#if attributes.disabled}}disabled{{/if}}>
+      <span class="customText" slot="label-text">{{attributes.name}}</span>
+      {{#if messages}}
+      <span slot="validity-message">{{> messages }}</span>
       {{> messages }}
-    </div>
-  {{/if}}
+      {{/if}}
+    </bx-input>
+  </label>
 </fieldset>

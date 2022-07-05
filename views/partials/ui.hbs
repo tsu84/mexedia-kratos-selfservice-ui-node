@@ -1,4 +1,6 @@
 <form action="{{ui.action}}" method="{{ui.method}}">
   {{> messages messages=ui.messages }}
-  {{> ui_nodes nodes=ui.nodes only=only }}
+  <bx-form-item>
+    {{> ui_nodes nodes=ui.nodes only=only }}
+  </bx-form-item>
 </form>
