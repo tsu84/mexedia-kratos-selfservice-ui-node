@@ -1,11 +1,42 @@
+@use '../../node_modules/@carbon/styles/scss/theme' with (
+  $theme: (
+      background: #ff0000,
+      background-active: #ff0000,
+      background-hover: #ff0000,
+      background-selected: #ff0000,
+      background-selected-hover: #cacaca,
+      background-inverse: #393939,
+      background-inverse-hover: #4c4c4c,
+      background-brand: #0f62fe,
+
+      text-primary: #ff0000,
+      text-secondary: #525252,
+      text-placeholder: #a8a8a8,
+      text-helper: #6f6f6f,
+      text-on-color: #d95959,
+      text-inverse: #ffffff,
+      text-disabled: #c6c6c6,
+      text-on-color-disabled: #8d8d8d,
+
+      button-primary: #8f2b2b,
+      button-primary-active: #002d9c,
+      button-primary-hover: #0353e9,
+      button-secondary: #61e59c,
+      button-secondary-active: #61e59c,
+      button-secondary-hover: #61e59c,
+      button-tertiary: #0f62fe,
+      button-tertiary-active: #002d9c,
+      button-tertiary-hover: #0353e9,
+      button-danger-primary: #da1e28,
+      button-danger-secondary: #da1e28,
+      button-danger-active: #750e13,
+      button-danger-hover: #b81921,
+      button-disabled: #c6c6c6,
+  ),
+);
+
 @use '../../node_modules/@carbon/styles';
 @use '../../node_modules/@carbon/grid';
-
-
-
-@use "myTheme";
-
-@include myTheme.my-theme();
 
 @import '../../node_modules/@carbon/themes/scss/themes';
 @import '../../node_modules/@carbon/layout';
@@ -311,6 +342,14 @@ $spacings: (
   display: flex;
 }
 
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
 .justify-content-btw {
   justify-content: space-between;
 }
@@ -362,7 +401,7 @@ $spacings: (
     }
     .subh3 {
       font-size: 16px;
-      margin-bottom: $spacing-07;
+      margin-bottom: $spacing-05;
     }
   }
 
@@ -377,7 +416,7 @@ $spacings: (
   bx-btn {
     display: block;
     &[kind="ghost"] {
-      margin: 32px 0 48px 0;
+      margin: 16px 0 48px 0;
       &::part(button) {
         padding: 0;
       }

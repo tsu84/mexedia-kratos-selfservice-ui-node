@@ -4,11 +4,6 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-
-@use "myTheme";
-@use '../../node_modules/@carbon/layout';
-@include myTheme.my-theme();
-
 @import '../../node_modules/carbon-components/scss/globals/scss/styles.scss';
 
 $primary: #09132D;
@@ -57,7 +52,6 @@ bx-btn .bx--btn--primary {
 
 
 bx-form-item, bx-inline-notification {
-  margin-bottom: 2rem;
 }
 
 bx-btn::part(button) {

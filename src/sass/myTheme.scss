@@ -1,5 +1,5 @@
-@mixin my-theme {
-  $theme--white: (
+@use '../../node_modules/@carbon/styles/scss/theme' with (
+  $theme: (
     // Background
           background: #ff0000,
           background-active: #ff0000,
@@ -82,7 +82,7 @@
           button-primary: #0f62fe,
           button-primary-active: #002d9c,
           button-primary-hover: #0353e9,
-          button-secondary: #393939,
+          button-secondary: #13d93a,
           button-secondary-active: #6f6f6f,
           button-secondary-hover: #4c4c4c,
           button-tertiary: #0f62fe,
@@ -101,4 +101,4 @@
     // Skeleton
           skeleton-background: #e5e5e5,
           skeleton-element: #c6c6c6,)
-}
+);

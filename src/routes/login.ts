@@ -12,7 +12,7 @@ import {Request, Response} from "express";
 
 export const createLoginRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {
-    res.locals.projectName = 'Sign in'
+    res.locals.projectName = 'Accedi'
 
     const { flow, aal = '', refresh = '', return_to = '' } = req.query
     const helpers = createHelpers(req)

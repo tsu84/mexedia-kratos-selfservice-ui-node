@@ -1,8 +1,8 @@
-<fieldset class="text-input-fieldset" data-testid="node/input/{{attributes.name}}">
+<fieldset class="text-input-fieldset mt-3" data-testid="node/input/{{attributes.name}}">
   <label>
-    <span class="typography-h3">{{getNodeLabel .}}{{#if attributes.required}}
+<!--    <span class="typography-h3">{{getNodeLabel .}}{{#if attributes.required}}
       <span class="required-indicator">*</span>{{/if}}
-    </span>
+    </span>-->
     <bx-input placeholder="{{getNodeLabel .}}" size="lg" color-scheme="" type="{{attributes.type}}"
       name="{{attributes.name}}" value="{{attributes.value}}" {{#if attributes.disabled}}disabled{{/if}}>
       <span class="customText" slot="label-text">{{attributes.name}}</span>

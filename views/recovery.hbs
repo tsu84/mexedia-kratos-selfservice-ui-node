@@ -10,18 +10,8 @@
                 <img src="images/Mexedia.svg">
                 <h2 class="weight-700">Recupera la password</h2>
                 <p class="subh3 text-color-grey weight-600">Inserisci la tua email e riceverai un link per poter cambiare la tua password.</p>
-                <bx-form-item>
-
-                    <bx-input  placeholder="Inserisci email" size="lg" color-scheme="" type="text">
-                        <span class="customText" slot="label-text">Email</span>
-                        <span slot="validity-message">Qualcosa non va bene</span>
-                    </bx-input>
-
-                    <bx-btn href="https://www.ibm.com" icon-layout> Invia link </bx-btn>
-
-                    <a class="mt-10" href="###">Contatta l'assistenza</a>
-
-                </bx-form-item>
+                {{> messages messages=messages className="global"}}
+                {{> ui ui=ui}}
             </div>
         </div>
     </div>
