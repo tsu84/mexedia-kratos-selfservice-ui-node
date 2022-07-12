@@ -5,9 +5,10 @@ docker:
 	docker build -t oryd/kratos-selfservice-ui-node:latest -t 814370905719.dkr.ecr.eu-south-1.amazonaws.com/mexedia-sso-ui:latest .
 
 .PHONY: docker-push
-docker-push: docker
+docker-push:
 	docker push 814370905719.dkr.ecr.eu-south-1.amazonaws.com/mexedia-sso-ui
 
+docker-build-push: docker docker-push
 
 .PHONY: build-sdk
 build-sdk:
