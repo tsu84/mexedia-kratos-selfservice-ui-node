@@ -60,12 +60,15 @@ export const createLoginRoute: RouteCreator =
     return sdk
       .getSelfServiceLoginFlow(flow, req.header("cookie"))
       .then(({ data: flow }) => {
+        const recoverUrl =
+          process.env.KRATOS_PUBLIC_URL + "/self-service/recovery/browser"
         // Render the data using a view (e.g. Jade Template):
         res.render("login", {
           ...flow,
           isAuthenticated: flow.refresh || flow.requested_aal === "aal2",
           signUpUrl: initRegistrationUrl,
           logoutUrl: logoutUrl,
+          recoverUrl: recoverUrl,
         })
       })
       .catch((e) => {
