@@ -55,7 +55,7 @@ registerErrorRoute(app)
 registerWelcomeRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
-  res.redirect('welcome', 303)
+  res.redirect(`${process.env.KRATOS_PUBLIC_URL}/self-service/login/browser`, 303)
 })
 
 // app.get('/about', function (req, res)

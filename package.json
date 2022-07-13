@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "build:sass": "sass --load-path=node_modules src/sass/styles.scss public/styles.css",
-    "build": "rm -rf lib/* && tsc && npm run build:sass",
+    "build-old": "rm -rf lib/* && tsc && npm run build:sass",
+    "build": "rm -rf lib/* && tsc && webpack",
     "serve": "node lib/index.js",
     "start": "nodemon",
     "test": "exit 0",

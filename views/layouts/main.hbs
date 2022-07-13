@@ -31,6 +31,31 @@
         <p>© Mexedia 2021-2022 - Mexedia srl - P.Iva 123456789000</p>
         <a href="###">Informativa privacy - Termini e condizioni</a>
     </footer>
+    <script>
+        (function submit() {
+            const form = document.querySelector("form")
+            const button = form.querySelector("[type=submit]")
+
+            const method = document.createElement("input")
+            method.style.visibility = "hidden"
+            method.setAttribute("name", button.getAttribute("name"))
+            method.setAttribute("value", button.getAttribute("value"))
+            form.appendChild(method)
+
+            button.addEventListener("click", () => {
+                const formData = new FormData(form)
+                const event = new CustomEvent("formdata", {
+                    bubbles: true,
+                    cancelable: false,
+                    composed: false,
+                })
+                event.formData = formData
+                form.dispatchEvent(event)
+                form.submit();
+            })
+        }
+        )()
+    </script>
 </body>
 
 </html>
