@@ -18,7 +18,8 @@ import {
   registerSettingsRoute,
   registerStaticRoutes,
   registerVerificationRoute,
-  registerWelcomeRoute
+  registerWelcomeRoute,
+  registerLogoutRoute
 } from './routes'
 
 const app = express()
@@ -53,6 +54,7 @@ registerVerificationRoute(app)
 registerWelcomeRoute(app)
 registerErrorRoute(app)
 registerWelcomeRoute(app)
+registerLogoutRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
   res.redirect(`${process.env.KRATOS_PUBLIC_URL}/self-service/login/browser`, 303)
