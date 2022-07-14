@@ -21,7 +21,7 @@ export const createLogoutRoute: RouteCreator =
           .catch(() => ({ data: { logout_url: "" } }))
       ).data.logout_url || ""
 
-    res.redirect(logoutUrl, 305)
+    res.redirect(logoutUrl)
   }
 
 export const registerLogoutRoute: RouteRegistrator = (
