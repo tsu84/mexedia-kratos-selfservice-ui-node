@@ -19,13 +19,16 @@ import {
   registerStaticRoutes,
   registerVerificationRoute,
   registerWelcomeRoute,
-  registerLogoutRoute
+  registerLogoutRoute,
+  registerChangePasswordRoute
 } from './routes'
 
 const app = express()
 
 app.use(middlewareLogger)
+app.use(express.json());
 app.set('view engine', 'hbs')
+
 
 app.engine(
   'hbs',
@@ -55,6 +58,7 @@ registerWelcomeRoute(app)
 registerErrorRoute(app)
 registerWelcomeRoute(app)
 registerLogoutRoute(app)
+registerChangePasswordRoute(app)
 
 app.get('/', (req: Request, res: Response) => {
   res.redirect(`${process.env.KRATOS_PUBLIC_URL}/self-service/login/browser`, 303)

@@ -56,7 +56,6 @@ export const createLoginRoute: RouteCreator =
           .catch(() => ({ data: { logout_url: "" } }))
       ).data.logout_url || ""
 
-    console.log(`cookie ${req.header("cookie")}`)
     return sdk
       .getSelfServiceLoginFlow(flow, req.header("cookie"))
       .then(({ data: flow }) => {
