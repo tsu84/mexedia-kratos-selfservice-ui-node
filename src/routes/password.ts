@@ -15,12 +15,12 @@ export const createChangePasswordRoute: RouteCreator =
   (createHelpers) => (req, res, next) => {
     res.locals.projectName = "Change Password"
 
-    // const { return_to = "" } = req.query
+    const { return_to = "" } = req.query
     const helpers = createHelpers(req)
     const input = req.body
 
     if (!input.password) {
-        logger.debug("password missing")
+      logger.debug("password missing")
     }
 
     const { sdk, kratosBrowserUrl } = helpers
@@ -31,7 +31,9 @@ export const createChangePasswordRoute: RouteCreator =
     // )
 
     return sdk
-      .initializeSelfServiceSettingsFlowForBrowsers()
+      .initializeSelfServiceSettingsFlowForBrowsers(return_to.toString(), {
+        headers: { Cookie: req.header('Cookie')},
+      })
       .then(({ data: flow }) => {
         // Render the data using a view (e.g. Jade Template):
         const csrf_node = flow.ui.nodes.find(
@@ -47,8 +49,17 @@ export const createChangePasswordRoute: RouteCreator =
           method: "Password",
           password: input.password,
         })
+
+        res.format({
+          json: () => res.send("{ message: password updated! }"),
+        })
       })
-      .catch(e => console.log(e.message))
+      .catch((e) =>
+        res.status(500).format({
+          json: () =>
+            res.send(`settings flow initialization failed: ${e.message}`),
+        }),
+      )
   }
 
 export const registerChangePasswordRoute: RouteRegistrator = (
