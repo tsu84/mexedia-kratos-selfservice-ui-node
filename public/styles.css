@@ -45353,5 +45353,40 @@ footer a {
     margin-left: 0;
   }
 }
+/******************  template mail   *******************/
+#template_email {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 555px;
+  margin: auto;
+  padding: 70px 20px;
+  background: #FAFBFF;
+}
+#template_email .box-grey {
+  background-color: #F2F4F9;
+  text-align: center;
+  padding: 42px 0;
+}
+#template_email .box-white {
+  background-color: white;
+  border-radius: 0 0 8px 8px;
+  padding: 40px 24px;
+}
+#template_email p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #34363F;
+}
+#template_email a {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  color: #1079FF;
+  text-decoration: none;
+}
+#template_email .regards {
+  color: #C3C7D3;
+  font-style: italic;
+}
 
 /*# sourceMappingURL=styles.css.map */

@@ -78,6 +78,12 @@ app.get('/change_password', function (req, res)
   res.render('change_password');
 });
 
+
+app.get('/template_email', function (req, res)
+{
+  res.render('template_email');
+});
+
 register404Route(app)
 register500Route(app)
 
@@ -97,3 +103,6 @@ if (process.env.TLS_CERT_PATH?.length && process.env.TLS_KEY_PATH?.length) {
 } else {
   app.listen(port, listener('http'))
 }
+
+
+
