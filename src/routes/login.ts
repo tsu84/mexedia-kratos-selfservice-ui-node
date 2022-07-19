@@ -1,3 +1,5 @@
+import { Request, Response } from "express"
+
 import {
   defaultConfig,
   getUrlForFlow,
@@ -6,40 +8,39 @@ import {
   redirectOnSoftError,
   removeTrailingSlash,
   RouteCreator,
-  RouteRegistrator
-} from '../pkg'
-import {Request, Response} from "express";
+  RouteRegistrator,
+} from "../pkg"
 
 export const createLoginRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {
-    res.locals.projectName = 'Accedi'
+    res.locals.projectName = "Accedi"
 
-    const { flow, aal = '', refresh = '', return_to = '' } = req.query
+    const { flow, aal = "", refresh = "", return_to = "" } = req.query
     const helpers = createHelpers(req)
     const { sdk, kratosBrowserUrl } = helpers
     const initFlowUrl = getUrlForFlow(
       kratosBrowserUrl,
-      'login',
+      "login",
       new URLSearchParams({
         aal: aal.toString(),
         refresh: refresh.toString(),
-        return_to: return_to.toString()
-      })
+        return_to: return_to.toString(),
+      }),
     )
 
     const initRegistrationUrl = getUrlForFlow(
       kratosBrowserUrl,
-      'registration',
+      "registration",
       new URLSearchParams({
-        return_to: return_to.toString()
-      })
+        return_to: return_to.toString(),
+      }),
     )
 
     // The flow is used to identify the settings and registration flow and
     // return data like the csrf_token and so on.
     if (!isQuerySet(flow)) {
-      logger.debug('No flow ID found in URL query initializing login flow', {
-        query: req.query
+      logger.debug("No flow ID found in URL query initializing login flow", {
+        query: req.query,
       })
       res.redirect(303, initFlowUrl)
       return
@@ -51,29 +52,49 @@ export const createLoginRoute: RouteCreator =
     const logoutUrl =
       (
         await sdk
-          .createSelfServiceLogoutFlowUrlForBrowsers(req.header('cookie'))
-          .catch(() => ({ data: { logout_url: '' } }))
-      ).data.logout_url || ''
+          .createSelfServiceLogoutFlowUrlForBrowsers(req.header("cookie"))
+          .catch(() => ({ data: { logout_url: "" } }))
+      ).data.logout_url || ""
 
     return sdk
-      .getSelfServiceLoginFlow(flow, req.header('cookie'))
+      .getSelfServiceLoginFlow(flow, req.header("cookie"))
       .then(({ data: flow }) => {
+        const recoverUrl =
+          process.env.KRATOS_PUBLIC_URL + "/self-service/recovery/browser"
         // Render the data using a view (e.g. Jade Template):
-        res.render('login', {
+        res.render("login", {
           ...flow,
-          isAuthenticated: flow.refresh || flow.requested_aal === 'aal2',
+          isAuthenticated: flow.refresh || flow.requested_aal === "aal2",
           signUpUrl: initRegistrationUrl,
-          logoutUrl: logoutUrl
+          logoutUrl: logoutUrl,
+          recoverUrl: recoverUrl,
         })
       })
-      .catch(redirectOnSoftError(res, next, initFlowUrl))
+      .catch((e) => {
+        const getCircularReplacer = () => {
+          const seen = new WeakSet()
+          return (key: any, value: any) => {
+            if (typeof value === "object" && value !== null) {
+              if (seen.has(value)) {
+                return
+              }
+              seen.add(value)
+            }
+            return value
+          }
+        }
+
+        console.log(
+          `Error ${e.id}: ${e.message}; Reason: ${e.reason}; Debug: ${e.debug}`,
+        )
+        console.log(JSON.stringify(e.details, getCircularReplacer(), 4))
+        redirectOnSoftError(res, next, initFlowUrl)
+      })
   }
-
-
 
 export const registerLoginRoute: RouteRegistrator = (
   app,
-  createHelpers = defaultConfig
+  createHelpers = defaultConfig,
 ) => {
-  app.get('/login', createLoginRoute(createHelpers))
+  app.get("/login", createLoginRoute(createHelpers))
 }

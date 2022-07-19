@@ -36,7 +36,7 @@ export const createSettingsRoute: RouteCreator =
       .getSelfServiceSettingsFlow(flow, undefined, req.header('cookie'))
       .then(({ data: flow }) => {
         // Render the data using a view (e.g. Jade Template):
-        res.render('settings', flow)
+        res.render('change_password', flow)
       })
       .catch(redirectOnSoftError(res, next, initFlowUrl))
   }
@@ -46,7 +46,7 @@ export const registerSettingsRoute: RouteRegistrator = (
   createHelpers = defaultConfig
 ) => {
   app.get(
-    '/settings',
+    '/password',
     requireAuth(createHelpers),
     createSettingsRoute(createHelpers)
   )

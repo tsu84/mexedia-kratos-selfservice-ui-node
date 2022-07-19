@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "build:sass": "sass --load-path=node_modules src/sass/styles.scss public/styles.css",
-    "build": "rm -rf lib/* && tsc && npm run build:sass",
+    "build-old": "rm -rf lib/* && tsc && npm run build:sass",
+    "build": "rm -rf lib/* && tsc && webpack",
     "serve": "node lib/index.js",
     "start": "nodemon",
     "test": "exit 0",
@@ -38,7 +39,6 @@
     "babel-preset-es2015": "^6.24.1",
     "carbon-components": "^10.56.0",
     "carbon-web-components": "^1.21.0",
-    "cookie-parser": "^1.4.5",
     "css-loader": "^6.7.1",
     "dotenv": "^16.0.1",
     "express": "^4.17.1",
@@ -60,7 +60,6 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.0.0",
     "@types/axios": "^0.14.0",
-    "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/express-handlebars": "^5.3.1",
     "@types/handlebars-helpers": "^0.5.2",
