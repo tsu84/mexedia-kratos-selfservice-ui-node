@@ -1,6 +1,7 @@
 import { filterNodesByGroups, getNodeLabel } from "@ory/integrations/ui"
 import "dotenv/config"
 import express, { Request, Response } from "express"
+import cors from "cors"
 import handlebars from "express-handlebars"
 import * as fs from "fs"
 import * as https from "https"
@@ -25,6 +26,7 @@ import {
 
 const app = express()
 
+app.use(cors())
 app.use(middlewareLogger)
 app.use(express.json())
 app.set("view engine", "hbs")
