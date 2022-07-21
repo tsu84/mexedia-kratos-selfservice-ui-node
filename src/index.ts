@@ -26,7 +26,10 @@ import {
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: [/\.mexedia\.com$/, /\.mexediastaging\.com$/, /\.localhost\.$/],
+  credentials: true,
+}))
 app.use(middlewareLogger)
 app.use(express.json())
 app.set("view engine", "hbs")
