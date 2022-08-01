@@ -1,5 +1,5 @@
 {
   "watch": ["src", "views"],
-  "ext": "ts, scss, hbs",
+  "ext": "ts, scss, hbs, env",
   "exec": "ts-node ./src/index.ts && sass --load-path=node_modules src/sass/styles.scss public/styles.css"
 }

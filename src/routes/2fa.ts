@@ -1,15 +1,28 @@
 import axios, { AxiosRequestHeaders } from "axios"
 
 import { defaultConfig, RouteCreator, RouteRegistrator } from "../pkg"
+import { getUser } from "../services/mexedia/user"
 
 export const get2faRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {
     res.locals.projectName = "2FA"
 
-    const session = req.session
-    console.log(session)
+    const cookie = req.header("Cookie")
+    if (!cookie) {
+      return res.redirect("login")
+    }
 
-    const to = "+393926967704"
+    const user = await getUser(cookie)
+
+    if (user === undefined) {
+      return res.redirect("login")
+    }
+
+    if (user && user.type && user.mfa_pass) {
+      return res.redirect("/authenticate")
+    }
+
+    const to = user.phone_number
     const message =
       "Mexedia: this is your phone number verification code: {code}"
 
@@ -52,20 +65,28 @@ export const post2faRoute: RouteCreator =
   (createHelpers) => async (req, res, next) => {
     res.locals.projectName = "2FA"
 
-    const session = req.session
-    console.log(session)
+    const cookie = req.header("Cookie")
+    if (!cookie) {
+      return res.redirect("login")
+    }
 
-    console.log(req.body)
+    const user = await getUser(cookie)
 
-    return res.redirect(
-      process.env.MEXEDIA_PANEL_URL || "https://panel.mexedia.com",
-    )
+    if (user && user.mfa_pass) {
+      return res.redirect("/authenticate")
+    }
+
+    const { token, code } = req.body
+    const valid = await validate2fa(token, code)
+
+    if (!valid) {
+      return res.redirect("/logout")
+    }
+
+    return res.redirect("/authenticate")
   }
 
-const validate2fa = async (
-  token: string,
-  code: string,
-): Promise<boolean | undefined> => {
+const validate2fa = async (token: string, code: string): Promise<boolean> => {
   const params = {
     Code: code,
     Token: token,
@@ -85,6 +106,7 @@ const validate2fa = async (
   } catch (e) {
     console.log(e)
   }
+  return false
 }
 
 export const register2faRoute: RouteRegistrator = (
