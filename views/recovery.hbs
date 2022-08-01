@@ -11,9 +11,41 @@
                 <h2 class="weight-700">Recupera la password</h2>
                 <p class="subh3 text-color-grey weight-600">Inserisci la tua email e riceverai un link per poter
                     cambiare la tua password.</p>
-                {{> messages messages=messages className="global"}}
-                {{> ui ui=ui}}
+                <form action="{{ui.action}}" method="{{ui.method}}">
+                    {{#each ui.nodes}}
+                    {{#if (eq attributes.name "csrf_token")}}
+                    {{> (toUiNodePartial .)}}
+                    {{/if}}
+                    {{#if (eq attributes.name "email")}}
+                    <bx-input placeholder="Inserisci email" size="lg" color-scheme="" type="email" name="email"
+                        required>
+                        <span class="customText" slot="label-text">Email</span>
+                        {{#each messages}}
+                        <span slot="validity-message">{{text}}</span>
+                        {{/each}}
+                    </bx-input>
+                    {{/if}}
+                    {{/each}}
+                    <bx-btn type="submit" name="method" value="link" class="mt-7" icon-layout>Invia link</bx-btn>
+                </form>
+                <a href="mailto:support@mexedia.com">Contatta l'assistenza</a>
             </div>
         </div>
     </div>
+    <div class="success-bar">
+        <img src="images/coding_button_success.svg">
+        <h6 class="weight-700 ml-3">Link inviato via email</h6>
+    </div>
 </div>
+<script type="text/javascript">
+    window.onload = () => {
+        const successBar = document.getElementsByClassName('success-bar')[0]
+
+        const submitButton = document.querySelector("[type='submit']")
+        submitButton.addEventListener('click', () => {
+            successBar.style.visibility = "visible"
+            requestSubmit(submitButton)
+            setTimeout(() => { successBar.style.visibility = "hidden" }, 5000)
+        })
+    }
+</script>

@@ -1,4 +1,4 @@
-@use '../../node_modules/@carbon/styles/scss/theme' with (
+@use '@carbon/styles/scss/theme' with (
   $theme: (
       background: #ff0000,
       background-active: #ff0000,
@@ -35,15 +35,15 @@
   ),
 );
 
-@use '../../node_modules/@carbon/styles';
-@use '../../node_modules/@carbon/grid';
+@use '@carbon/styles';
+@use '@carbon/grid';
 
-@import '../../node_modules/@carbon/themes/scss/themes';
-@import '../../node_modules/@carbon/layout';
+@import '@carbon/themes/scss/themes';
+@import '@carbon/layout';
 
 @include grid.flex-grid();
 
-@import '../../node_modules/carbon-components/scss/globals/scss/styles.scss';
+@import '@carbon-components/scss/globals/scss/styles.scss';
 
 
 html, body {
@@ -368,6 +368,7 @@ $spacings: (
   align-items: center;
   color: white;
   padding: 10px 14px;
+  visibility: hidden;
 }
 
 @media (max-width: 671px) {

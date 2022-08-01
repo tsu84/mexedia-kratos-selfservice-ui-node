@@ -7,8 +7,7 @@ ARG LINK=no
 
 RUN adduser -S ory -D -u 10000 -s /bin/nologin
 
-COPY package.json .
-COPY package-lock.json .
+COPY package*.json .
 
 RUN npm ci --fetch-timeout=600000
 

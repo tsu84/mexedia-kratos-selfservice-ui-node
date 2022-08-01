@@ -1,0 +1,112 @@
+<div class="auth carbonCustom" id="verification">
+    <div class="cds--row cds--no-gutter">
+        <div class="cds--col-lg-5 cds--col-md-0 cds--col-sm-0">
+            <div class="left-image">
+                <img src="images/background.svg">
+            </div>
+        </div>
+        <div class="cds--col-sm-12 cds--col-md-12 cds--col-lg-11 d-flex">
+            <div class="content-box cds--col-md-5 cds--col-lg-8">
+                <img src="images/Mexedia.svg">
+                <h2 class="weight-700">Codice di verifica</h2>
+                <p class="subh3 text-color-grey weight-600">Inserisci il codice di verifica a cinque cifre che abbiamo
+                    inviato al numero *** **** 373.</p>
+                <form action="/2fa" method="post">
+                    <input type="hidden" name="token" value="{{token}}" />
+                    <bx-form-item>
+                        <div class="mb-6 d-flex justify-content-btw">
+                            <input id="1" name="digit1" class="box-number-custom" placeholder="-" type="text"
+                                pattern="\d*" maxlength="1" required>
+                            <input id="2" name="digit2" class="mx-4 box-number-custom" placeholder="-" type="text"
+                                pattern="\d*" maxlength="1" required>
+                            <input id="3" name="digit3" class="box-number-custom" placeholder="-" type="text"
+                                pattern="\d*" maxlength="1" required>
+                            <input id="4" name="digit4" class="mx-4 box-number-custom" placeholder="-" type="text"
+                                pattern="\d*" maxlength="1" required>
+                            <input id="5" name="digit5" class="box-number-custom" placeholder="-" type="text"
+                                pattern="\d*" maxlength="1" required>
+                        </div>
+
+                        <bx-btn type="submit" icon-layout> Convalida </bx-btn>
+                        <bx-btn kind='ghost'> Invia un nuovo codice </bx-btn>
+                        <a href="mailto:support@mexedia.com">Contatta l'assistenza</a>
+                    </bx-form-item>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="success-bar">
+        <img src="images/coding_button_success.svg">
+        <h6 class="weight-700 ml-3">Il codice è stato inviato con successo!</h6>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = () => {
+        function validatePassKey(tb) {
+            let currentField = tb.value;
+            if (currentField.length >= 1) {
+                tb.removeAttribute('invalid')
+                const nextId = parseInt(tb.id) + 1;
+                const next = document.getElementById(nextId)
+                if (next) {
+                    next.focus()
+                }
+            }
+        }
+
+        document.querySelectorAll('[name^="digit"]').forEach(e => e.addEventListener('keyup', (e) => validatePassKey(e.target)))
+
+        document.querySelectorAll('input').forEach(e => e.addEventListener('invalid', (e) => e.target.setAttribute('invalid', '')))
+
+        function showSuccessBar() {
+            const successBar = document.querySelector('.success-bar')
+            successBar.style.visibility = "visible"
+            setTimeout(() => {
+                successBar.style.visibility = "hidden";
+            }, 5000);
+        }
+
+        const button = document.querySelector("[type=submit]")
+        button.addEventListener("click", (e) => {
+            const form = document.querySelector("form")
+            if (!form.reportValidity()) {
+                return
+            }
+
+            const formData = new FormData(form)
+            const code = [...Array(5).keys()].map((i) => formData.get(`digit${i + 1}`)).join('')
+
+            const event = new CustomEvent("formdata", {
+                bubbles: true,
+                cancelable: false,
+                composed: false,
+            })
+
+            const data = JSON.stringify({
+                token: formData.get("token"),
+                code: code
+            })
+
+            const request = new XMLHttpRequest()
+            request.onreadystatechange = () => {
+                if (this.readyState !== 4) {
+                    return;
+                }
+
+                if (this.status >= 300 && this.status < 400) {
+                    return window.location.href = this.getResponseHeader("Location")
+                }
+            }
+            request.open('POST', '2fa')
+            request.setRequestHeader('Content-Type', 'application/json')
+            request.send(data)
+        })
+
+        document.getElementById(5).addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.querySelector("[type=submit]").click()
+            }
+        })
+    }
+</script>

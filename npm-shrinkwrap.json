@@ -44,7 +44,6 @@
       },
       "devDependencies": {
         "@trivago/prettier-plugin-sort-imports": "^3.0.0",
-        "@types/axios": "^0.14.0",
         "@types/cors": "^2.8.12",
         "@types/express": "^4.17.13",
         "@types/express-handlebars": "^5.3.1",
@@ -1300,16 +1299,6 @@
       "resolved": "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.3.tgz",
       "integrity": "sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==",
       "dev": true
-    },
-    "node_modules/@types/axios": {
-      "version": "0.14.0",
-      "resolved": "https://registry.npmjs.org/@types/axios/-/axios-0.14.0.tgz",
-      "integrity": "sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==",
-      "deprecated": "This is a stub types definition for axios (https://github.com/mzabriskie/axios). axios provides its own type definitions, so you don't need @types/axios installed!",
-      "dev": true,
-      "dependencies": {
-        "axios": "*"
-      }
     },
     "node_modules/@types/body-parser": {
       "version": "1.19.2",
@@ -13392,9 +13381,9 @@
       }
     },
     "node_modules/terser": {
-      "version": "5.14.1",
-      "resolved": "https://registry.npmjs.org/terser/-/terser-5.14.1.tgz",
-      "integrity": "sha512-+ahUAE+iheqBTDxXhTisdA8hgvbEG1hHOQ9xmNjeUJSoi6DU/gMrKNcfZjHkyY6Alnuyc+ikYJaxxfHkT3+WuQ==",
+      "version": "5.14.2",
+      "resolved": "https://registry.npmjs.org/terser/-/terser-5.14.2.tgz",
+      "integrity": "sha512-oL0rGeM/WFQCUd0y2QrWxYnq7tfSuKBiqTjRPWrRgB46WD/kiwHwF8T23z78H6Q6kGCuuHcPB+KULHRdxvVGQA==",
       "dependencies": {
         "@jridgewell/source-map": "^0.3.2",
         "acorn": "^8.5.0",
@@ -15561,15 +15550,6 @@
       "resolved": "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.3.tgz",
       "integrity": "sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==",
       "dev": true
-    },
-    "@types/axios": {
-      "version": "0.14.0",
-      "resolved": "https://registry.npmjs.org/@types/axios/-/axios-0.14.0.tgz",
-      "integrity": "sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==",
-      "dev": true,
-      "requires": {
-        "axios": "*"
-      }
     },
     "@types/body-parser": {
       "version": "1.19.2",
@@ -24981,9 +24961,9 @@
       }
     },
     "terser": {
-      "version": "5.14.1",
-      "resolved": "https://registry.npmjs.org/terser/-/terser-5.14.1.tgz",
-      "integrity": "sha512-+ahUAE+iheqBTDxXhTisdA8hgvbEG1hHOQ9xmNjeUJSoi6DU/gMrKNcfZjHkyY6Alnuyc+ikYJaxxfHkT3+WuQ==",
+      "version": "5.14.2",
+      "resolved": "https://registry.npmjs.org/terser/-/terser-5.14.2.tgz",
+      "integrity": "sha512-oL0rGeM/WFQCUd0y2QrWxYnq7tfSuKBiqTjRPWrRgB46WD/kiwHwF8T23z78H6Q6kGCuuHcPB+KULHRdxvVGQA==",
       "requires": {
         "@jridgewell/source-map": "^0.3.2",
         "acorn": "^8.5.0",

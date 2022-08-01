@@ -5,6 +5,7 @@ import cors from "cors"
 import handlebars from "express-handlebars"
 import * as fs from "fs"
 import * as https from "https"
+import bodyParser from 'body-parser'
 
 import { middleware as middlewareLogger } from "./pkg/logger"
 import { toUiNodePartial } from "./pkg/ui"
@@ -22,6 +23,7 @@ import {
   registerWelcomeRoute,
   registerLogoutRoute,
   registerChangePasswordRoute,
+  register2faRoute
 } from "./routes"
 
 const app = express()
@@ -32,6 +34,7 @@ app.use(cors({
 }))
 app.use(middlewareLogger)
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.set("view engine", "hbs")
 
 app.engine(
@@ -63,6 +66,7 @@ registerErrorRoute(app)
 registerWelcomeRoute(app)
 registerLogoutRoute(app)
 registerChangePasswordRoute(app)
+register2faRoute(app)
 
 app.get("/", (req: Request, res: Response) => {
   res.redirect(
@@ -90,10 +94,10 @@ app.get("/change_password", function (req, res) {
 })
 
 
-app.get('/template_email', function (req, res)
-{
-  res.render('template_email');
-});
+// app.get('/template_email', function (req, res)
+// {
+//   res.render('template_email');
+// });
 
 register404Route(app)
 register500Route(app)
