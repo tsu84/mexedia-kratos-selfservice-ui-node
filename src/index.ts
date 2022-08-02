@@ -72,8 +72,8 @@ registerAuthenticateRoute(app)
 
 app.get("/", (req: Request, res: Response) => {
   res.redirect(
-    `${process.env.KRATOS_PUBLIC_URL}/self-service/login/browser`,
     303,
+    `${process.env.KRATOS_PUBLIC_URL}/self-service/login/browser`,
   )
 })
 

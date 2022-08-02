@@ -45,30 +45,28 @@
                 </form>
                 <script>
                     window.onload = () => {
-                        function submit() {
-                            const form = document.querySelector("form")
-                            const button = form.querySelector("[type=submit]")
+                        const form = document.querySelector("form")
+                        const button = form.querySelector("[type=submit]")
 
-                            const method = document.createElement("input")
-                            method.setAttribute("type", "hidden")
-                            if (button.getAttribute("name")) {
-                                method.setAttribute("name", button.getAttribute("name"))
-                                method.setAttribute("value", button.getAttribute("value"))
-                            }
-                            form.appendChild(method)
-
-                            button.addEventListener("click", () => {
-                                const formData = new FormData(form)
-                                const event = new CustomEvent("formdata", {
-                                    bubbles: true,
-                                    cancelable: false,
-                                    composed: false,
-                                })
-                                event.formData = formData
-                                form.dispatchEvent(event)
-                                form.submit();
-                            })
+                        const method = document.createElement("input")
+                        method.setAttribute("type", "hidden")
+                        if (button.getAttribute("name")) {
+                            method.setAttribute("name", button.getAttribute("name"))
+                            method.setAttribute("value", button.getAttribute("value"))
                         }
+                        form.appendChild(method)
+
+                        button.addEventListener("click", () => {
+                            const formData = new FormData(form)
+                            const event = new CustomEvent("formdata", {
+                                bubbles: true,
+                                cancelable: false,
+                                composed: false,
+                            })
+                            event.formData = formData
+                            form.dispatchEvent(event)
+                            form.submit();
+                        })
 
                         const passwordField = document.querySelector("[type=password]")
                         passwordField.addEventListener("keypress", function (event) {
