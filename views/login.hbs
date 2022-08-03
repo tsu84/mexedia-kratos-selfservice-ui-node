@@ -19,22 +19,22 @@
                         {{/if}}
                         {{#if (eq attributes.name "identifier")}}
                         <bx-input placeholder="Inserisci email" size="lg" color-scheme="" type="text" name="identifier"
-                            required>
+                            required {{#if messages.length}}invalid{{/if}}>
                             <span class="customText" slot="label-text">Email</span>
                         </bx-input>
                         {{/if}}
                         {{#if (eq attributes.name "password")}}
                         <bx-input placeholder="Inserisci password" size="lg" color-scheme="" type="password"
-                            name="password" required>
+                            name="password" required {{#if messages.length}}invalid{{/if}}>
                             <span class="customText" slot="label-text">Password</span>
                         </bx-input>
                         {{/if}}
                         {{#each messages}}
-                        <span slot="validity-message">{{text}}</span>
+                        <div class="error-message">{{text}}</div>
                         {{/each}}
                         {{/each}}
                         {{#each ui.messages}}
-                        <span slot="validity-message">{{text}}</span>
+                        <div class="error-message">{{text}}</div>
                         {{/each}}
                         {{!-- <bx-checkbox label-text="Ricordami per i prossimi accessi"></bx-checkbox> --}}
 

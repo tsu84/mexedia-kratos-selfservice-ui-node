@@ -21,10 +21,13 @@
                         required>
                         <span class="customText" slot="label-text">Email</span>
                         {{#each messages}}
-                        <span slot="validity-message">{{text}}</span>
+                        <div class="error-message">{{text}}</div>
                         {{/each}}
                     </bx-input>
                     {{/if}}
+                    {{/each}}
+                    {{#each ui.messages}}
+                    <div class="error-message">{{text}}</div>
                     {{/each}}
                     <bx-btn type="submit" name="method" value="link" class="mt-7" icon-layout>Invia link</bx-btn>
                 </form>
@@ -43,9 +46,33 @@
 
         const submitButton = document.querySelector("[type='submit']")
         submitButton.addEventListener('click', () => {
+            document.querySelector('form').requestSubmit()
             successBar.style.visibility = "visible"
-            requestSubmit(submitButton)
             setTimeout(() => { successBar.style.visibility = "hidden" }, 5000)
         })
+
+        const form = document.querySelector("form")
+        const button = form.querySelector("[type=submit]")
+
+        const method = document.createElement("input")
+        method.setAttribute("type", "hidden")
+        if (button.getAttribute("name")) {
+            method.setAttribute("name", button.getAttribute("name"))
+            method.setAttribute("value", button.getAttribute("value"))
+        }
+        form.appendChild(method)
+
+        button.addEventListener("click", () => {
+            const formData = new FormData(form)
+            const event = new CustomEvent("formdata", {
+                bubbles: true,
+                cancelable: false,
+                composed: false,
+            })
+            event.formData = formData
+            form.dispatchEvent(event)
+            form.submit();
+        })
+
     }
 </script>
