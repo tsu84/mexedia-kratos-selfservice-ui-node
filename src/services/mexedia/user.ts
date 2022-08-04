@@ -1,6 +1,6 @@
 import axios, { AxiosRequestHeaders } from "axios"
 
-type User = {
+interface User {
   phone_number: string
   type: string
   mfa_pass: boolean
